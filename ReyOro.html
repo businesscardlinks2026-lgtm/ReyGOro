@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101010">
+  <title>Rey G. Oro | Digital Business Card</title>
+  <style>
+    :root {
+      --black: #101010;
+      --black-soft: #191919;
+      --gold: #c9a45c;
+      --gold-light: #ead6a5;
+      --ink: #f4f1e9;
+      --muted: #aaa69c;
+      --line: rgba(201, 164, 92, .25);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 26px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(ellipse at top, rgba(201,164,92,.09), transparent 45%),
+        #090909;
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+    }
+    .card {
+      width: 100%;
+      max-width: 440px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--black);
+      box-shadow: 0 22px 65px rgba(0,0,0,.38);
+    }
+    .header {
+      position: relative;
+      padding: 30px 28px 27px;
+      background: linear-gradient(145deg, #1b1b1b, #101010 68%);
+      border-bottom: 1px solid var(--line);
+    }
+    .header::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(var(--gold-light), #8c6b31);
+    }
+    .symbol {
+      display: grid;
+      place-items: center;
+      width: 58px; height: 58px;
+      margin-bottom: 25px;
+      border: 1px solid var(--gold);
+      border-radius: 14px;
+      color: var(--gold-light);
+      background: rgba(201,164,92,.06);
+    }
+    .symbol svg { width: 31px; height: 31px; }
+    .eyebrow {
+      margin: 0 0 9px;
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(32px, 8vw, 39px);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -.6px;
+    }
+    .role {
+      margin: 13px 0 0;
+      color: var(--gold-light);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .45px;
+    }
+    .content { padding: 25px 28px 27px; }
+    .section-title {
+      margin: 0 0 13px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      min-width: 0;
+    }
+    .row:last-of-type { border-bottom: 0; }
+    .icon {
+      flex: 0 0 36px;
+      width: 36px; height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--gold);
+      background: rgba(201,164,92,.055);
+    }
+    .icon svg { width: 17px; height: 17px; }
+    .detail { min-width: 0; }
+    .label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+    .detail a, .detail .value {
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 500;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+    .detail a:hover { color: var(--gold-light); }
+    .email-link { display: block; margin: 2px 0; }
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 23px;
+    }
+    .btn {
+      min-height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 10px;
+      border: 1px solid var(--gold);
+      border-radius: 9px;
+      background: var(--gold);
+      color: #14110b;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 750;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn.secondary {
+      background: transparent;
+      color: var(--gold-light);
+    }
+    .footer {
+      padding: 15px 18px;
+      border-top: 1px solid var(--line);
+      color: #89857c;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    @media (max-width: 360px) {
+      .header, .content { padding-left: 21px; padding-right: 21px; }
+      .actions { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <header class="header">
+      <div class="symbol" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 2 7 17h8l-1 13 11-17h-8l1-11Z"/>
+          <path d="M3 7h5M24 25h5M3 25h4M24 7h5"/>
+        </svg>
+      </div>
+      <p class="eyebrow">Digital Business Card</p>
+      <h1>Rey G. Oro</h1>
+      <p class="role">Professional Electrical Engineer</p>
+    </header>
+
+    <section class="content" aria-label="Contact information">
+      <p class="section-title">Contact Information</p>
+
+      <div class="row">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h4l2 5-2.5 1.8a15 15 0 0 0 5.7 5.7L16 13l5 2v4c0 1.1-.9 2-2 2C10 21 3 14 3 5c0-1.1.9-2 2-2Z"/></svg>
+        </div>
+        <div class="detail">
+          <span class="label">Mobile / Viber</span>
+          <a href="tel:+639778048451">0977 804 8451</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+        </div>
+        <div class="detail">
+          <span class="label">Email</span>
+          <a class="email-link" href="mailto:reyors@yahoo.com">reyors@yahoo.com</a>
+          <a class="email-link" href="mailto:reyoro@crystalsugar.com.ph">reyoro@crystalsugar.com.ph</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5V10H7v3h2.8v8h3.7Z"/></svg>
+        </div>
+        <div class="detail">
+          <span class="label">Facebook</span>
+          <a href="https://www.facebook.com/rey.g.oro" target="_blank" rel="noopener noreferrer">facebook.com/rey.g.oro</a>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn" href="tel:+639778048451">Call / Viber</a>
+        <a class="btn secondary" href="https://www.facebook.com/rey.g.oro" target="_blank" rel="noopener noreferrer">Facebook Profile</a>
+      </div>
+    </section>
+    <footer class="footer">Precision · Power · Professionalism</footer>
+  </main>
+</body>
+</html>
